@@ -11,6 +11,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 export class EmployeeListComponent {
 
   EmployeeForm :FormGroup
+  employeeList: { ename: string; contactno: string; email: string; address: string }[] = [];
+
 
   constructor(private fb:FormBuilder){
     this.EmployeeForm = this.fb.group({
@@ -21,6 +23,8 @@ export class EmployeeListComponent {
 
     })
   }
-
+  addEmployee(){
+    this.employeeList.push({ename: this.EmployeeForm.value.ename,contactno: this.EmployeeForm.value.contactno,email: this.EmployeeForm.value.email,address: this.EmployeeForm.value.address})
+  }
  
 }

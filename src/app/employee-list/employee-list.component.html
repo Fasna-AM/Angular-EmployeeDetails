@@ -5,14 +5,29 @@
         <button type="button" class="btn btn-primary m-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >
                 ADD
           </button>
+        <div >
+                <table class="table shadow" style="width: 50rem;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Contact Number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (emp of employeeList; track $index) {
+                        <tr>
+                            <td>{{emp.ename}}</td>
+                            <td>{{emp.contactno}}</td>
+                            <td>{{emp.email}}</td>
+                            <td>{{emp.address}}</td>
+                        </tr>
+                    }
 
-        <div class="w-50 ">
-            <ul class="list-group">
-                <li class="list-group-item">Employee Name : {{EmployeeForm.value.ename}}</li>
-                <li class="list-group-item">Contact Number : {{EmployeeForm.value.contactno}}</li>
-                <li class="list-group-item">Email : {{EmployeeForm.value.email}} </li>
-                <li class="list-group-item">Address : {{EmployeeForm.value.address}}</li>
-            </ul>
+                    </tbody>
+                </table>
+           
         </div>
     </div>
 </div>
@@ -61,7 +76,7 @@
                     <div class="text-danger fw-bolder">Invalid Address</div>
                     }
                 </div>
-                <button [disabled]="EmployeeForm.invalid" type="button" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
+                <button (click)="addEmployee()" [disabled]="EmployeeForm.invalid" type="button" class="btn btn-success" data-bs-dismiss="modal">Submit</button>
             </form>
         </div> 
         </div>
